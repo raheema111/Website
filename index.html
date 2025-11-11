@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zubar Enterprises</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUBAR ENTERPRISES</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="flex bg-gray-50 text-gray-800">
 
-<!-- ===== Sidebar ===== -->
-<nav class="sidebar">
-    <h2>ZUBAR</h2>
-    <ul>
-        <li><a href="#home">🏠 Home</a></li>
-        <li><a href="#about">ℹ️ About Us</a></li>
-        <li><a href="#contact">📞 Contact</a></li>
-    </ul>
-</nav>
+<!-- Sidebar -->
+<aside class="w-64 h-screen bg-gray-900 text-white flex flex-col fixed left-0 top-0 shadow-lg">
+    <div class="p-6 text-2xl font-bold tracking-wide text-center border-b border-gray-700">
+        ZUBAR
+    </div>
+    <nav class="flex-1 p-6 space-y-4">
+        <a href="#home" class="block hover:text-blue-400 transition">Home</a>
+        <a href="#about" class="block hover:text-blue-400 transition">About Us</a>
+        <a href="#contact" class="block hover:text-blue-400 transition">Contact Us</a>
+    </nav>
+    <div class="p-4 text-xs text-gray-400 text-center border-t border-gray-700">
+        © 2025 ZUBAR ENTERPRISES
+    </div>
+</aside>
 
-<!-- ===== Main Content ===== -->
-<main class="main-content">
+<!-- Main content -->
+<main class="ml-64 flex-1">
 
-    <!-- ===== Header Section ===== -->
-    <header id="home" class="header">
-        <div class="overlay"></div>
-        <div class="header-content">
-            <h1>ZUBAR ENTERPRISES</h1>
-            <p class="subtitle">Delivering Excellence Since 2024</p>
-        </div>
-    </header>
+    <!-- Home Section -->
+    <section id="home" class="h-screen flex items-center justify-center bg-cover bg-center relative" style="background-image: url('header-bg.jpg');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <h1 class="relative text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg text-center">
+            ZUBAR ENTERPRISES
+        </h1>
+    </section>
 
-    <!-- ===== About Section ===== -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <div class="about-slideshow">
-            <p class="slide active">ZUBAR Enterprises delivers excellence in Fastag RFID sales and support.</p>
-            <p class="slide">Partnered with IDFC First Bank, offering seamless activation and after-sales services.</p>
-            <p class="slide">Serving customers across Hyderabad and Andhra Pradesh with dedication and trust.</p>
-            <p class="slide">We ensure smooth Fastag usage through end-to-end service and dedicated customer care.</p>
+    <!-- About Us Section -->
+    <section id="about" class="min-h-screen flex flex-col justify-center items-center text-center p-12 bg-white">
+        <h2 class="text-4xl font-semibold mb-6 text-gray-800">About Us</h2>
+        <p class="text-lg text-gray-600 max-w-2xl leading-relaxed fade-in">
+            Welcome to <strong>ZUBAR ENTERPRISES</strong> — where innovation meets dedication.
+            We specialize in creating high-quality business solutions tailored for modern enterprises.
+            Our team believes in excellence, transparency, and delivering with passion.
+        </p>
+        <div class="mt-10 flex gap-6">
+            <div class="p-6 rounded-2xl bg-gray-100 shadow-md hover:shadow-xl transition-transform hover:-translate-y-2 fade-in-delay">
+                <h3 class="text-xl font-bold mb-2 text-blue-600">Our Vision</h3>
+                <p class="text-gray-600 text-sm">Empowering growth through technology and trust.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-gray-100 shadow-md hover:shadow-xl transition-transform hover:-translate-y-2 fade-in-delay-2">
+                <h3 class="text-xl font-bold mb-2 text-blue-600">Our Mission</h3>
+                <p class="text-gray-600 text-sm">Delivering excellence in every project we undertake.</p>
+            </div>
         </div>
     </section>
 
-    <!-- ===== Contact Section ===== -->
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:support@myzubar.com">support@myzubar.com</a></p>
-        <p>Phone: +91 98482 79847</p>
+    <!-- Contact Us Section -->
+    <section id="contact" class="min-h-screen flex flex-col justify-center items-center p-12 bg-gray-100 text-center">
+        <h2 class="text-4xl font-semibold mb-6 text-gray-800">Contact Us</h2>
+        <p class="text-lg text-gray-600 mb-8">We’d love to hear from you! Reach out for collaborations, queries, or support.</p>
+        <a href="mailto:support@myzubar.com" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+            Email Us
+        </a>
     </section>
-
-    <footer>
-        <p>© 2019 Zubar Enterprises. All Rights Reserved.</p>
-    </footer>
 
 </main>
-
-<!-- ===== JavaScript for About Slideshow ===== -->
-<script>
-    const slides = document.querySelectorAll('.slide');
-    let index = 0;
-
-    setInterval(() => {
-      slides[index].classList.remove('active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('active');
-    }, 4000); // every 4 seconds
-</script>
 
 </body>
 </html>
