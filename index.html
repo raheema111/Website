@@ -17,6 +17,19 @@
           overflow: hidden;
         }
 
+
+
+.tagline {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #f8f8f8;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+
         /* Navigation */
         nav {
           position: absolute;
@@ -44,16 +57,62 @@
         }
 
         /* Hero Section */
-        .hero {
-          height: 100vh;
-          background: url('header-bg.jpg') no-repeat center center/cover;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          color: white;
-          position: relative;
-        }
+       .hero {
+  height: 100vh;
+  background: url('header-bg.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  margin-top: 20vh;
+  z-index: 2;
+}
+
+.product-showcase {
+  margin-bottom: 50px;
+  z-index: 2;
+  text-align: center;
+}
+
+.product-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+.product-gallery img {
+  width: 180px; /* you can adjust width */
+  height: 60px; /* rectangular shape */
+  border-radius: 10px; /* light curve for elegance */
+  object-fit: cover;
+  background-color: white;
+  padding: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+.product-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+}
+
+
+.coming-soon {
+  font-size: 1.1rem;
+  color: #f8f8f8;
+  opacity: 0.85;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
 
         .hero::after {
           content: "";
@@ -241,8 +300,21 @@
 
 <!-- HERO SECTION -->
 <section class="hero" id="hero">
-    <h1>ZUBAR ENTERPRISES</h1>
+    <div class="hero-content">
+        <h1>ZUBAR ENTERPRISES</h1>
+        <p class="tagline">Delivering Excellence in FasTag Services Since 2019</p>
+    </div>
+
+    <div class="product-showcase">
+        <div class="product-gallery">
+            <img src="IDFC-First-Bank.jpg" alt="FasTag Device" />
+            <img src="BAJAJ.png" alt="RFID Tag" />
+        </div>
+        <p class="coming-soon">Supported Products</p>
+    </div>
 </section>
+
+
 
 <!-- ABOUT SECTION -->
 <section class="content-section" id="about">
