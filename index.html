@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZUBAR Enterprises</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
 
         body, html {
           margin: 0;
@@ -17,18 +17,15 @@
           overflow: hidden;
         }
 
-
-
-.tagline {
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: #f8f8f8;
-  letter-spacing: 1px;
-  margin-top: 10px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-  animation: fadeIn 2.5s ease-in-out;
-}
-
+        .tagline {
+          font-size: 1.3rem;
+          font-weight: 400;
+          color: #f8f8f8;
+          letter-spacing: 1px;
+          margin-top: 10px;
+          text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+          animation: fadeIn 2.5s ease-in-out;
+        }
 
         /* Navigation */
         nav {
@@ -56,63 +53,85 @@
           color: black;
         }
 
+        /* Left-side Service Button */
+        .service-btn {
+          position: absolute;
+          top: 25px;
+          left: 50px;
+          z-index: 10;
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 1.1rem;
+          border: 1px solid white;
+          padding: 8px 18px;
+          border-radius: 25px;
+          background: transparent;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        .service-btn:hover {
+          background-color: white;
+          color: black;
+        }
+
         /* Hero Section */
-       .hero {
-  height: 100vh;
-  background: url('header-bg.jpg') no-repeat center center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  color: white;
-  position: relative;
-}
+        .hero {
+          height: 100vh;
+          background: url('header-bg.jpg') no-repeat center center/cover;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          text-align: center;
+          color: white;
+          position: relative;
+        }
 
-.hero-content {
-  margin-top: 20vh;
-  z-index: 2;
-}
+        .hero-content {
+          margin-top: 20vh;
+          z-index: 2;
+        }
 
-.product-showcase {
-  margin-bottom: 50px;
-  z-index: 2;
-  text-align: center;
-}
+        .product-showcase {
+          margin-bottom: 50px;
+          z-index: 2;
+          text-align: center;
+        }
 
-.product-gallery {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-}
-.product-gallery img {
-  width: 180px; /* you can adjust width */
-  height: 60px; /* rectangular shape */
-  border-radius: 10px; /* light curve for elegance */
-  object-fit: cover;
-  background-color: white;
-  padding: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+        .product-gallery {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          flex-wrap: wrap;
+          margin-bottom: 15px;
+        }
 
-}
+        .product-gallery img {
+          width: 180px;
+          height: 60px;
+          border-radius: 10px;
+          object-fit: cover;
+          background-color: white;
+          padding: 8px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-.product-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(0,0,0,0.6);
-}
+        .product-gallery img:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+        }
 
-
-.coming-soon {
-  font-size: 1.1rem;
-  color: #f8f8f8;
-  opacity: 0.85;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
+        .coming-soon {
+          font-size: 1.1rem;
+          color: #f8f8f8;
+          opacity: 0.85;
+          letter-spacing: 1px;
+          text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
 
         .hero::after {
           content: "";
@@ -277,6 +296,57 @@
           color: white;
         }
 
+        /* Modal Styling for Service */
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 999;
+          left: 0; top: 0;
+          width: 100%; height: 100%;
+          background: rgba(0,0,0,0.7);
+          justify-content: center;
+          align-items: center;
+        }
+
+        .modal-content {
+          background: rgba(255,255,255,0.1);
+          border-radius: 15px;
+          padding: 30px;
+          width: 90%;
+          max-width: 600px;
+          text-align: center;
+          color: #fff;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255,255,255,0.2);
+          animation: fadeIn 0.5s ease;
+        }
+
+        .close {
+          float: right;
+          font-size: 28px;
+          cursor: pointer;
+        }
+
+        .state-btn {
+          background: rgba(255,255,255,0.2);
+          border: none;
+          color: white;
+          margin: 8px;
+          padding: 10px 20px;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .state-btn:hover {
+          background: rgba(255,255,255,0.4);
+        }
+
+        .toll-list {
+          margin-top: 25px;
+          font-size: 1rem;
+        }
+
         @media (max-width: 768px) {
           .hero h1 {
             font-size: 2.5rem;
@@ -292,6 +362,9 @@
 </head>
 
 <body>
+
+<!-- Left side new Service Button -->
+<button class="service-btn" id="serviceBtn">Service Available At</button>
 
 <nav>
     <a id="aboutBtn">About Us</a>
@@ -314,8 +387,6 @@
     </div>
 </section>
 
-
-
 <!-- ABOUT SECTION -->
 <section class="content-section" id="about">
     <button class="back-btn" id="backBtnAbout">← Back</button>
@@ -323,20 +394,15 @@
     <div class="about-wrapper">
         <div class="about-box">
             <h2>About ZUBAR Enterprises</h2>
-
             <h3>🚗 Who We Are</h3>
-            <p>
-                ZUBAR Enterprises is a leading sales and customer support partner for FasTag RFID solutions,
+            <p>ZUBAR Enterprises is a leading sales and customer support partner for FasTag RFID solutions,
                 proudly associated with <strong>IDFC First Bank</strong>, <strong>BAJAJ</strong>, and other trusted providers.
                 Operating across <strong>PAN India</strong>, we deliver end-to-end FasTag services for vehicle owners
-                and transport operators who rely on seamless toll payment solutions.
-            </p>
+                and transport operators who rely on seamless toll payment solutions.</p>
 
             <h3>🎯 Our Mission</h3>
-            <p>
-                To offer a hassle-free FasTag experience through smooth sales, activation, and after-sales support —
-                ensuring every customer enjoys reliable and effortless toll transactions without delays or issues.
-            </p>
+            <p>To offer a hassle-free FasTag experience through smooth sales, activation, and after-sales support —
+                ensuring every customer enjoys reliable and effortless toll transactions without delays or issues.</p>
 
             <h3>🤝 Our Commitment</h3>
             <ul>
@@ -346,15 +412,11 @@
             </ul>
 
             <h3>💡 Why Choose Us</h3>
-            <p>
-                We combine <strong>technology-driven solutions</strong> with <strong>personalized customer care</strong>,
-                making us one of the most dependable FasTag service providers in the region.
-            </p>
+            <p>We combine <strong>technology-driven solutions</strong> with <strong>personalized customer care</strong>,
+                making us one of the most dependable FasTag service providers in the region.</p>
         </div>
 
-        <footer>
-            &copy; 2019 Zubar Enterprises. All Rights Reserved.
-        </footer>
+        <footer>&copy; 2019 Zubar Enterprises. All Rights Reserved.</footer>
     </div>
 </section>
 
@@ -371,10 +433,22 @@
         <p>🕓 <strong>Working Hours:</strong> Available 24/7 — 365 days a year</p>
     </div>
 
-    <footer>
-        &copy; 2019 Zubar Enterprises. All Rights Reserved.
-    </footer>
+    <footer>&copy; 2019 Zubar Enterprises. All Rights Reserved.</footer>
 </section>
+
+<!-- SERVICE MODAL -->
+<div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Service Available At</h2>
+        <div>
+            <button class="state-btn" data-state="maharashtra">Maharashtra</button>
+            <button class="state-btn" data-state="karnataka">Karnataka</button>
+            <button class="state-btn" data-state="tamilnadu">Tamil Nadu</button>
+        </div>
+        <div id="tollList" class="toll-list"></div>
+    </div>
+</div>
 
 <script>
     const hero = document.getElementById('hero');
@@ -408,7 +482,31 @@
       contact.classList.remove('active');
       hero.style.display = 'flex';
     });
-</script>
 
+    // Service Modal Logic
+    const modal = document.getElementById("serviceModal");
+    const serviceBtn = document.getElementById("serviceBtn");
+    const span = document.querySelector(".close");
+    const tollList = document.getElementById("tollList");
+
+    const tollData = {
+      maharashtra: ["Mumbai-Bandra Toll", "Pune Expressway Toll", "Nagpur Toll"],
+      karnataka: ["Bangalore-Nelamangala Toll", "Mysore Highway Toll"],
+      tamilnadu: ["Chennai Bypass Toll", "Madurai Highway Toll"]
+    };
+
+    serviceBtn.onclick = () => modal.style.display = "flex";
+    span.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+
+    document.querySelectorAll(".state-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const state = button.dataset.state;
+        const tolls = tollData[state];
+        tollList.innerHTML = `<h3>${state.toUpperCase()}</h3><ul>` +
+          tolls.map(t => `<li>${t}</li>`).join("") + `</ul>`;
+      });
+    });
+</script>
 </body>
 </html>
