@@ -1,26 +1,94 @@
-/* ====== Global Styles ====== */
+/* ===== Reset and Layout ===== */
 body {
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  color: #1a1a1a;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
   background-color: #fafbfc;
-  line-height: 1.6;
 }
 
-/* ====== Header ====== */
+/* ===== Sidebar ===== */
+.sidebar {
+  background: #111827;
+  color: white;
+  width: 230px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+}
+
+.sidebar h2 {
+  margin-bottom: 40px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #3b82f6;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 1.05rem;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.sidebar a:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  margin-left: 230px;
+  width: calc(100% - 230px);
+  overflow-y: auto;
+}
+
+/* ===== Header ===== */
 .header {
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
-  color: #ffffff;
-  padding: 80px 20px;
+  position: relative;
+  height: 350px;
+  background: url("header-bg.jpg") center/cover no-repeat; /* 🔹 Change this image name */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  border-bottom: 4px solid #1e40af;
+  color: white;
+}
+
+.header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
 }
 
 .header h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 10px;
-  letter-spacing: 0.5px;
 }
 
 .subtitle {
@@ -28,31 +96,63 @@ body {
   opacity: 0.9;
 }
 
-/* ====== Section (About, Contact, etc.) ====== */
-.about,
-.contact {
+/* ===== About Section ===== */
+.about {
   max-width: 900px;
   margin: 60px auto;
-  padding: 0 25px;
   background: #ffffff;
+  padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.about:hover,
-.contact:hover {
-  transform: translateY(-4px);
-}
-
-h2 {
+.about h2 {
   color: #2563eb;
   border-left: 4px solid #2563eb;
   padding-left: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
-/* ====== Footer ====== */
+.about-slideshow {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slide {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  font-size: 1.1rem;
+  padding: 0 20px;
+  color: #333;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* ===== Contact Section ===== */
+.contact {
+  max-width: 900px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact h2 {
+  color: #2563eb;
+  border-left: 4px solid #2563eb;
+  padding-left: 10px;
+  margin-bottom: 25px;
+}
+
+/* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 20px;
@@ -63,14 +163,24 @@ footer {
   margin-top: 60px;
 }
 
-/* ====== Links ====== */
-a {
-  color: #2563eb;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+  }
 
-a:hover {
-  color: #1e40af;
-  text-decoration: underline;
+  .main-content {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+
+  .header {
+    height: 300px;
+  }
 }
